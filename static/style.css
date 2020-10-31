@@ -1,0 +1,10 @@
+* {
+    font-family: 'Roboto', sans-serif;
+    letter-spacing: 0.1px;
+    line-height: 24px;
+}
+
+.card span.card-title {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
+}
