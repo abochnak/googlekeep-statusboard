@@ -4,7 +4,11 @@
     line-height: 24px;
 }
 
-.card span.card-title {
-    font-family: 'Open Sans', sans-serif;
-    font-weight: bold;
+[type="checkbox"].filled-in:checked + span:not(.lever):after {
+    border: 2px solid #9aa0a6 !important;
+    background-color: transparent !important;
+}
+
+span.crossed {
+    text-decoration: line-through;
 }
