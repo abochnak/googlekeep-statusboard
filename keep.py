@@ -1,6 +1,7 @@
 import gkeepapi
-import keyring
-from secrets import USERNAME, PASSWORD
+#import keyring
+#from secrets import USERNAME, PASSWORD
+from secrets import USERNAME, GOOGLE_TOKEN
 
 def get_api():
     keep = gkeepapi.Keep()
@@ -9,8 +10,8 @@ def get_api():
     # token = keep.getMasterToken()
     # keyring.set_password('google-keep-token', USERNAME, token)
 
-    token = keyring.get_password('google-keep-token', USERNAME)
-    keep.resume(USERNAME, token)
+    #token = keyring.get_password('google-keep-token', USERNAME)
+    keep.resume(USERNAME, GOOGLE_TOKEN)
     
     gnote = list(keep.find('Alicia To-Do List'))
 
