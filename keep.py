@@ -1,33 +1,24 @@
 import gkeepapi
-#import keyring
-#from secrets import USERNAME, PASSWORD
-from secrets import USERNAME, GOOGLE_TOKEN
+from secrets import USERNAME, GOOGLE_TOKEN, DEFAULT
 
-def get_api():
+def get_api(name):
     keep = gkeepapi.Keep()
-    # keep.login(USERNAME, PASSWORD)
-    # # <snip>
-    # token = keep.getMasterToken()
-    # keyring.set_password('google-keep-token', USERNAME, token)
-
-    #token = keyring.get_password('google-keep-token', USERNAME)
     keep.resume(USERNAME, GOOGLE_TOKEN)
     
-    gnote = list(keep.find('Alicia To-Do List'))
+    gnote = list(keep.find(name))
 
     if len(gnote) != 1:
-        print("Too many lists!")
-        exit(1)
+        return None, None
     todolist = gnote[0]
 
     return keep, todolist
 
-def get_todos():
-    keep, todolist = get_api()
+def get_todos(name):
+    keep, todolist = get_api(name)
     return todolist
 
-def mark_as_done(index, todo_name, checked):
-    keep, gnote = get_api()
+def mark_as_done(index, todo_name, checked, name):
+    keep, gnote = get_api(name)
     if index >= len(gnote.items):
         return False
     print(gnote.items[index].text, todo_name)

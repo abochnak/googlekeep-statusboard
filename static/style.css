@@ -12,3 +12,16 @@
 span.crossed {
     text-decoration: line-through;
 }
+
+.crossed{
+    color: #9aa0a6 !important;
+}
+
+.invisible{
+    display: none;
+}
+
+hr{
+    border-color: #9aa0a6 !important;
+    height: 0.4px;
+}
